@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-stone-900 text-white
+}
+
+h1 {
+  @apply text-3xl font-semibold
+}
