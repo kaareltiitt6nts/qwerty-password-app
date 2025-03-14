@@ -1,7 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ChoicePrompt from './ChoicePrompt'
+import MainMenu from './MainMenu'
 
 const GameContainer = () => {
+  const [gameStarted, setGameStarted] = useState(false)
+  const [gameStage, setGameStage] = useState(0)
+
+  const gameStartedHandler = () => {
+    setGameStarted(true)
+  }
+
   const choices = [
     {icon: "../assets/img/sword.png", value:"sword"},
     {icon: "../assets/img/sword.png", value:"axe"},
@@ -11,7 +19,10 @@ const GameContainer = () => {
   ]
 
   return (
-    <ChoicePrompt choices={choices} />
+    <>
+      {!gameStarted && <MainMenu onGameStarted={gameStartedHandler} />}
+      {gameStarted && <ChoicePrompt choices={choices} />}
+    </>
   )
 }
 

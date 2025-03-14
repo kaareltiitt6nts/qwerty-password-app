@@ -8,7 +8,7 @@ const ChoicePrompt = (props) => {
 
   return (
     <Card>
-      <div className='flex flex-col justify-center gap-10 w-96'>
+      <div className='flex flex-col justify-center gap-10 w-72 sm:w-96'>
         <ChoiceText />
         <ChoiceList choices={choices} />
       </div>
