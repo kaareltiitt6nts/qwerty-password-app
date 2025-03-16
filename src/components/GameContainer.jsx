@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import ChoicePrompt from './ChoicePrompt'
-import MainMenu from './MainMenu'
-import CharacterMenu from './CharacterMenu'
+import ChoicePrompt from './menus/ChoicePrompt'
+import MainMenu from './menus/MainMenu'
+import CharacterMenu from './menus/CharacterMenu'
 
 const GameContainer = () => {
   const [inMainMenu, setInMainMenu] = useState(true)

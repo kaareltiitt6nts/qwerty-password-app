@@ -1,6 +1,6 @@
 import React from 'react'
-import { Card } from './Card'
-import { Button } from './Button'
+import { Card } from '../Card'
+import { Button } from '../controls/Button'
 
 const MainMenu = (props) => {
   const {onGameStarted} = props

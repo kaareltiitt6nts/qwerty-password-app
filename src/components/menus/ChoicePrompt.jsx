@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card } from './Card'
-import { ChoiceList } from './ChoiceList'
-import ChoiceText from './ChoiceText'
+import { Card } from '../Card'
+import { ChoiceList } from '../ChoiceList'
+import ChoiceText from '../ChoiceText'
 
 const ChoicePrompt = (props) => {
   const {choices} = props
