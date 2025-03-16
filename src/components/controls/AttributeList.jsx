@@ -13,12 +13,11 @@ const AttributeList = (props) => {
 
   // ?????????????????? jama asi..
   const addPointHandler = (attributeId, increment) => {
-    if (points <= 0) return
+    if (increment === "add" && points <= 0) return
 
     const attribute = attributes.find(attribute => attribute.id === attributeId)    
     if (!attribute || attribute === undefined) return
 
-    if (increment === "add" && points <= 0) return
     if (increment === "remove" && attribute.points === 0) return
 
     if (increment === "add") {
