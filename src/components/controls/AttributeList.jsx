@@ -19,7 +19,9 @@ const AttributeList = (props) => {
   // ?????????????????? jama asi..
   const addPointHandler = (attributeId, amount) => {
     const newPoints = points - amount
+    const newAttributePoints = attributes[attributeId] + amount
     if (newPoints < 0 || newPoints > 10) return
+    if (newAttributePoints < 0 || newAttributePoints > 5) return
 
     setAttributes(prev => ({
       ...prev,

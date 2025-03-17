@@ -2,10 +2,10 @@ import React from 'react'
 import { IconButton } from './IconButton'
 
 export const ChoiceList = (props) => {
-  const {choices} = props
+  const {choices, onSelect} = props
 
   const selectHandler = (choice) => {
-    console.log(choice)
+    onSelect(choice)
   }
 
   return (

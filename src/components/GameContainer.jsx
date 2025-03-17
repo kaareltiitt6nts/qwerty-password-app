@@ -1,12 +1,20 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import ChoicePrompt from './menus/ChoicePrompt'
 import MainMenu from './menus/MainMenu'
 import CharacterMenu from './menus/CharacterMenu'
+import { GetRandomActs } from '../data/globalData'
 
 const GameContainer = () => {
   const [inMainMenu, setInMainMenu] = useState(true)
   const [gameStarted, setGameStarted] = useState(false)
-  const [gameStage, setGameStage] = useState(0)
+  const [stage, setStage] = useState(0)
+  const [acts, setActs] = useState(GetRandomActs(5))
+  const [charData, setCharData] = useState([])
+
+  const promptCompleteHandler = (choice) => {
+    console.log("selected " + choice)
+    setStage(stage + 1)
+  }
 
   const gameStartedHandler = () => {
     setInMainMenu(false)
@@ -28,7 +36,7 @@ const GameContainer = () => {
     <>
       {inMainMenu && <MainMenu onGameStarted={gameStartedHandler} />}
       {(!inMainMenu && !gameStarted) && <CharacterMenu onCharacterCompleted={characterCompletedHandler} />}
-      {gameStarted && <ChoicePrompt title={"test"} text={"test"} imagePath={"../assets/img/dragon.jpg"} choices={choices} />}
+      {gameStarted && <ChoicePrompt title={acts[stage]["title"]} text={acts[stage]["text"]} imagePath={acts[stage]["imagePath"]} choices={acts[stage]["choices"]} onCompleted={(choice) => promptCompleteHandler(choice)}/>}
     </>
   )
 }
