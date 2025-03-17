@@ -1,17 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import { Button } from './Button'
-import { GetAttributes } from '../../data/globalData'
+import { GetAttributes, getRandomAttributeValue } from "../../data/globaldata"
 
-const AttributeList = (props) => {
+const AttributeList = ({ onAttributesCompleted }) => {
   const [points, setPoints] = useState(10)
   const [attributes, setAttributes] = useState({})
+  const [name, setName] = useState("")
+  const [highestStat, setHighestStat] = useState("");
+  const [highestStatValue, setHighestStatValue] = useState(null);
+
+
   const attributeList = GetAttributes()
 
   useEffect(() => {
     setAttributes(prevAttributes => ({
       str: prevAttributes.str ?? 0,
       dex: prevAttributes.dex ?? 0,
-      vit: prevAttributes.vit ?? 0,
+      mag: prevAttributes.mag ?? 0,
       int: prevAttributes.int ?? 0
     }))
   }, [points])
@@ -31,8 +36,44 @@ const AttributeList = (props) => {
     setPoints(newPoints)
   }
 
+    // Find the highest attribute
+    useEffect(() => {
+      if (Object.keys(attributes).length === 0) return;
+    
+      const maxPoints = Math.max(...Object.values(attributes));
+      const highestAttributes = Object.keys(attributes).filter(
+        (key) => attributes[key] === maxPoints
+      );
+    
+      const matchingAttributes = attributeList.filter(attr =>
+        highestAttributes.includes(attr.id)
+      );
+    
+      if (matchingAttributes.length === 0) return;
+    
+      const chosenAttribute =
+        matchingAttributes.length === 1
+          ? matchingAttributes[0]
+          : matchingAttributes[Math.floor(Math.random() * matchingAttributes.length)];
+    
+      setHighestStat(chosenAttribute.name);
+    
+      // Use the function to get a random value from `values`
+      setHighestStatValue(getRandomAttributeValue(attributeList, chosenAttribute.name));
+    }, [attributes]);
+
+  const handleComplete = () => {
+    if (name.trim().length > 0) {
+      onAttributesCompleted({ name, highestStatValue });
+    }
+  };
+
   return (
     <div>
+      <div className='w-full flex flex-col'>
+          <label htmlFor="nameinput">Nimi:</label>
+          <input type="text" id="nameinput" className='bg-slate-100 text-black rounded-md' value={name}  onChange={(e) => setName(e.target.value)} placeholder="Peeter Suur näiteks"/>
+      </div>
       <span>Points: {points}</span>
       <ul>
         {
@@ -52,6 +93,9 @@ const AttributeList = (props) => {
           })
         }
       </ul>
+      <div className='mt-3'>
+      <Button text="Loo karakter!" onClick={handleComplete}/>
+      </div>
     </div>
   )
 }

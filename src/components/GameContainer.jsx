@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react'
 import ChoicePrompt from './menus/ChoicePrompt'
 import MainMenu from './menus/MainMenu'
 import CharacterMenu from './menus/CharacterMenu'
-import { GetRandomActs } from '../data/globalData'
+import { GetRandomActs } from '../data/globaldata'
+
 
 const GameContainer = () => {
   const [inMainMenu, setInMainMenu] = useState(true)
@@ -20,23 +21,17 @@ const GameContainer = () => {
     setInMainMenu(false)
   }
 
-  const characterCompletedHandler = () => {
+  const characterCompletedHandler = (characterAttributes) => {
+    setCharData(characterAttributes);
     setGameStarted(true)
+    console.log(characterAttributes)
   }
-
-  const choices = [
-    {icon: "../assets/img/sword.png", value:"sword"},
-    {icon: "../assets/img/sword.png", value:"axe"},
-    {icon: "../assets/img/sword.png", value:"mallet"},
-    {icon: "../assets/img/sword.png", value:"pickaxe"},
-    {icon: "../assets/img/sword.png", value:"fists"},
-  ]
 
   return (
     <>
       {inMainMenu && <MainMenu onGameStarted={gameStartedHandler} />}
       {(!inMainMenu && !gameStarted) && <CharacterMenu onCharacterCompleted={characterCompletedHandler} />}
-      {gameStarted && <ChoicePrompt title={acts[stage]["title"]} text={acts[stage]["text"]} imagePath={acts[stage]["imagePath"]} choices={acts[stage]["choices"]} onCompleted={(choice) => promptCompleteHandler(choice)}/>}
+      {gameStarted && <ChoicePrompt title={acts[stage]["title"]} text={acts[stage]["text"]} imagePath={acts[stage]["imagePath"]} choices={acts[stage]["choices"]} onCompleted={(choice) => promptCompleteHandler(choice)}/>}    
     </>
   )
 }

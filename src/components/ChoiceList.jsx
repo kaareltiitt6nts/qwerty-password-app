@@ -11,7 +11,7 @@ export const ChoiceList = (props) => {
   return (
     <div className='w-full flex flex-row justify-between'>
       {choices.map((choice, index) => {
-        return <IconButton icon={"../assets/img/sword.png"} key={index} value={choice.value} onClick={() => selectHandler(choice.value)}/>
+        return <IconButton icon={choice.icon} key={index} value={choice.value} onClick={() => selectHandler(choice.value)}/>
       })}
     </div>
   )
