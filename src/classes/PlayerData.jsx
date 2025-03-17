@@ -10,7 +10,10 @@ export class PlayerData {
     this.keywords.push(keyword)
   }
 
-  getHighestAttribute = () => {
-    return 
+  getHighestAttributeId = () => {
+    // ?????????????????
+    const highestAttribute = Object.entries(this.attributes).sort(([, a], [, b]) => b - a)[0]
+
+    return highestAttribute[0]
   }
 }

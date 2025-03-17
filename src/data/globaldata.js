@@ -6,11 +6,11 @@ const attributes = [
         max: 5,
         values: ["rammukas", "sitke", "tugev", "vägev", "võimas"],
         weapons: [
-            {icon: "../assets/img/button/icon-firesword.png", name: "Mõõk", value:"mõõk"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Oganui", value:"oganui"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Sõjavasar", value:"sõjavasar"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Kirves", value:"kirves"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Ankur", value:"ankur"}
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Mõõk", value:"mõõk"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Oganui", value:"oganui"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Sõjavasar", value:"sõjavasar"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Kirves", value:"kirves"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Ankur", value:"ankur"}
         ]
     },
     {
@@ -20,11 +20,11 @@ const attributes = [
         max: 5,
         values: ["võlur", "maagiline", "müstiline", "üleloomulik", "väekas"],
         weapons: [
-            {icon: "../assets/img/button/icon-firesword.png", name: "Tulemõõk", value:"tulemõõk"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Tormikristall", value:"tormikristall"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Varjupiits", value:"varjupiits"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Loitsuraamat", value:"loitsuraamat"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Tulesau", value:"tulesau"}
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Tulemõõk", value:"tulemõõk"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Tormikristall", value:"tormikristall"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Varjupiits", value:"varjupiits"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Loitsuraamat", value:"loitsuraamat"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Tulesau", value:"tulesau"}
         ]
     },
     {
@@ -34,11 +34,11 @@ const attributes = [
         max: 5,
         values: ["ergas", "nobe", "paindlik", "väle", "osav"],
         weapons: [
-            {icon: "../assets/img/button/icon-firesword.png", name: "Rapiir", value:"rapiir"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Amb", value:"amb"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Viskenoad", value:"viskenoad"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Visketäht", value:"visketäht"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Vibu", value:"vibu"}
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Rapiir", value:"rapiir"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Amb", value:"amb"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Pistoda", value:"pistoda"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Visketäht", value:"visketäht"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Vibu", value:"vibu"}
         ]
     },
     {
@@ -48,11 +48,11 @@ const attributes = [
         max: 5,
         values: ["arukas", "andekas", "hiilgav", "taibukas", "tark", "geniaalne"],
         weapons: [
-            {icon: "../assets/img/button/icon-firesword.png", name: "Happepudel", value:"happepudel"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Vedrutera", value:"vedrutera"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Mürginooled", value:"mürginooled"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Pomm", value:"pomm"},
-            {icon: "../assets/img/button/icon-firesword.png", name: "Tulemõõk", value:"tulemõõk"}
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Happepudel", value:"happepudel"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Vedrutera", value:"vedrutera"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Mürginooled", value:"mürginooled"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Pomm", value:"pomm"},
+            {icon: "../assets/img/button/icon-flamesword.png", title: "Tulemõõk", value:"tulemõõk"}
         ]
     }
 ];
@@ -64,10 +64,10 @@ const acts = [
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
         imagePath: "../../assets/img/acts/dragon.jpg",
         choices: [
-            {icon: "../assets/img/button/icon-accept.png", value: "sword"},
-            {icon: "../assets/img/button/icon-deny.png", value: "sword"},
-            {icon: "../assets/img/button/icon-question.png", value: "sword"},
-            {icon: "../assets/img/button/icon-sad.png", value: "sword"}
+            {icon: "../assets/img/button/icon-accept.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-deny.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-question.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-sad.png", title: "Mõõk", value: "mõõk"}
         ]
     },
     {
@@ -75,10 +75,10 @@ const acts = [
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
         imagePath: "../../assets/img/acts/dragon.jpg",
         choices: [
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"}
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"}
         ]
     },
     {
@@ -86,10 +86,10 @@ const acts = [
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
         imagePath: "../../assets/img/acts/dragon.jpg",
         choices: [
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"}
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"}
         ]
     },
     {
@@ -97,10 +97,10 @@ const acts = [
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
         imagePath: "../../assets/img/acts/dragon.jpg",
         choices: [
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"}
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"}
         ]
     },
     {
@@ -108,23 +108,18 @@ const acts = [
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
         imagePath: "../../assets/img/acts/dragon.jpg",
         choices: [
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"}
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
+            {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"}
         ]
     },
     {
-        title: "Draakoni rünnak viimane",
-        text: "Draakon ründab küla! Võta relv ja tõtta appi! aga viimane",
+        title: "Draakoni rünnak, päriselt seekord!",
+        text: "Draakon ründab küla! Võta relv ja tõtta appi! Seekord siis viimast korda. :)",
         imagePath: "../../assets/img/acts/dragon.jpg",
         final: true,
-        choices: [
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"},
-            {icon: "../assets/img/button/icon-run.png", value: "sword"}
-        ]
+        choices: [] // tulevad suurima statsi relvadest
     }
 ]
 
@@ -134,6 +129,19 @@ export const GetRandomActs = (count) => {
     const randomized = acts.sort().filter(act => act.final !== true)
     return randomized.slice(0, count)
 }
+export const GetFinalAct = (highestAttributeId) => {
+    if (!highestAttributeId) {
+        console.log("highest attribute not given")
+        return
+    }
+
+    const finalAct = acts.filter(act => act.final == true)[0]
+    const weapons = attributes.find(attribute => attribute.id === highestAttributeId).weapons
+    finalAct.choices = weapons
+
+    return finalAct
+}
+
 // aitab võtta ühe attributes value väärtuse
 export const getRandomAttributeValue = (attributes, highestStat) => {
     const foundAttribute = attributes.find(attr => attr.name === highestStat);

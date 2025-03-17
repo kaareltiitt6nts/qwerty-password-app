@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import ChoicePrompt from './menus/ChoicePrompt'
 import MainMenu from './menus/MainMenu'
 import CharacterMenu from './menus/CharacterMenu'
-import { GetAllActs, GetRandomActs } from '../data/globaldata'
+import { GetFinalAct, GetRandomActs } from '../data/globaldata'
 
 
 const GameContainer = () => {
@@ -10,10 +10,11 @@ const GameContainer = () => {
   const [gameStarted, setGameStarted] = useState(false)
   const [gameCompleted, setGameCompleted] = useState(false)
   const [stage, setStage] = useState(0)
+  const [finalAct, setFinalAct] = useState(null)
   const [playerData, setPlayerData] = useState(null)
+  const [highestAttribute, setHighestAttribute] = useState(null)
 
   const acts = GetRandomActs(5)
-  const finalAct = GetAllActs().find(act => act.final === true)
 
   const resetGame = () => {
     setInMainMenu(true)
@@ -21,13 +22,14 @@ const GameContainer = () => {
     setGameCompleted(false)
     setStage(0)
     setPlayerData(null)
+    setHighestAttribute(null)
   }
 
   const promptCompleteHandler = (choice) => {
     console.log("selected " + choice)
     playerData.addKeyword(choice)
     setStage(stage + 1)
-    console.log(playerData)
+    console.log(finalAct)
   }
 
   const gameCompletedHandler = (choice) => {
@@ -37,8 +39,6 @@ const GameContainer = () => {
 
     // hetkel ei tee see midagi
     setGameCompleted(true)
-
-    console.log(playerData)
     
     // reseti asi 2ra
     resetGame()
@@ -49,8 +49,9 @@ const GameContainer = () => {
   }
 
   const characterCompletedHandler = (data) => {
-    setPlayerData(data);
+    setPlayerData(data)
     setGameStarted(true)
+    setFinalAct(GetFinalAct(data.getHighestAttributeId()))
   }
 
   return (
@@ -83,8 +84,8 @@ const GameContainer = () => {
         />
       }
 
+      {/* ??? */}
       {gameCompleted &&
-        // ???
         <MainMenu onGameStarted={gameStartedHandler}/>
       }
     </>
