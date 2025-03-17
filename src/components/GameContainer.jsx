@@ -28,7 +28,7 @@ const GameContainer = () => {
     <>
       {inMainMenu && <MainMenu onGameStarted={gameStartedHandler} />}
       {(!inMainMenu && !gameStarted) && <CharacterMenu onCharacterCompleted={characterCompletedHandler} />}
-      {gameStarted && <ChoicePrompt choices={choices} />}
+      {gameStarted && <ChoicePrompt title={"test"} text={"test"} imagePath={"../assets/img/dragon.jpg"} choices={choices} />}
     </>
   )
 }

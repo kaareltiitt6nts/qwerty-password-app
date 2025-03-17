@@ -1,33 +1,32 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Button } from './Button'
-
-const attributes = [
-  {name: "Strength", id: "str", points: 0},
-  {name: "Vitality", id: "vit", points: 0},
-  {name: "Dexterity", id: "dex", points: 0},
-  {name: "Intelligence", id: "int", points: 0},
-]
+import { GetAttributes } from '../../data/globalData'
 
 const AttributeList = (props) => {
   const [points, setPoints] = useState(10)
+  const [attributes, setAttributes] = useState({})
+  const attributeList = GetAttributes()
+
+  useEffect(() => {
+    setAttributes(prevAttributes => ({
+      str: prevAttributes.str ?? 0,
+      dex: prevAttributes.dex ?? 0,
+      vit: prevAttributes.vit ?? 0,
+      int: prevAttributes.int ?? 0
+    }))
+  }, [points])
 
   // ?????????????????? jama asi..
-  const addPointHandler = (attributeId, increment) => {
-    if (increment === "add" && points <= 0) return
+  const addPointHandler = (attributeId, amount) => {
+    const newPoints = points - amount
+    if (newPoints < 0 || newPoints > 10) return
 
-    const attribute = attributes.find(attribute => attribute.id === attributeId)    
-    if (!attribute || attribute === undefined) return
+    setAttributes(prev => ({
+      ...prev,
+      [attributeId]: prev[attributeId] + amount
+    }))
 
-    if (increment === "remove" && attribute.points === 0) return
-
-    if (increment === "add") {
-      setPoints(points - 1)
-      attribute.points += 1
-    }
-    else {
-      setPoints(points + 1)
-      attribute.points -= 1
-    }
+    setPoints(newPoints)
   }
 
   return (
@@ -35,16 +34,16 @@ const AttributeList = (props) => {
       <span>Points: {points}</span>
       <ul>
         {
-          attributes.map((attribute, count) => {
+          attributeList.map((attribute, count) => {
             return (
               <li key={count}>
                 <div>
                   <span>{attribute.name}</span>
                 </div>
                 <div className='flex flex-row justify-between align-middle w-full'>
-                  <Button text="-" onClick={() => addPointHandler(attribute.id, "remove")}/>
-                  <span>{attribute.points}</span>
-                  <Button text="+" onClick={() => addPointHandler(attribute.id, "add")}/>
+                  <Button text="-" onClick={() => addPointHandler(attribute.id, -1)}/>
+                  <span>{attributes[attribute.id]}</span>
+                  <Button text="+" onClick={() => addPointHandler(attribute.id, 1)}/>
                 </div>
               </li>
             )
