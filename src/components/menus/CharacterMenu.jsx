@@ -5,8 +5,9 @@ import AttributeList from '../controls/AttributeList'
 const CharacterMenu = (props) => {
   const {onCharacterCompleted} = props
 
-  const handleAttributesCompleted = (charData) => {
-    onCharacterCompleted(charData);
+  const handleAttributesCompleted = (playerData) => {
+    console.log(playerData)
+    onCharacterCompleted(playerData);
   };
 
   return (

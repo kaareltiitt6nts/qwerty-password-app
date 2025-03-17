@@ -1,23 +1,22 @@
 import React, {useState, useEffect} from 'react'
 import { Button } from './Button'
 import { GetAttributes, getRandomAttributeValue } from "../../data/globaldata"
+import { PlayerData } from '../../classes/PlayerData'
 
-const AttributeList = ({ onAttributesCompleted }) => {
+const AttributeList = (props) => {
+  const {onAttributesCompleted} = props
   const [points, setPoints] = useState(10)
   const [attributes, setAttributes] = useState({})
   const [name, setName] = useState("")
-  const [highestStat, setHighestStat] = useState("");
-  const [highestStatValue, setHighestStatValue] = useState(null);
-
 
   const attributeList = GetAttributes()
 
   useEffect(() => {
     setAttributes(prevAttributes => ({
-      str: prevAttributes.str ?? 0,
-      dex: prevAttributes.dex ?? 0,
-      mag: prevAttributes.mag ?? 0,
-      int: prevAttributes.int ?? 0
+      str: prevAttributes.str ?? 1,
+      dex: prevAttributes.dex ?? 1,
+      mag: prevAttributes.mag ?? 1,
+      int: prevAttributes.int ?? 1
     }))
   }, [points])
 
@@ -26,7 +25,7 @@ const AttributeList = ({ onAttributesCompleted }) => {
     const newPoints = points - amount
     const newAttributePoints = attributes[attributeId] + amount
     if (newPoints < 0 || newPoints > 10) return
-    if (newAttributePoints < 0 || newAttributePoints > 5) return
+    if (newAttributePoints < 1 || newAttributePoints > 5) return
 
     setAttributes(prev => ({
       ...prev,
@@ -36,35 +35,9 @@ const AttributeList = ({ onAttributesCompleted }) => {
     setPoints(newPoints)
   }
 
-    // Find the highest attribute
-    useEffect(() => {
-      if (Object.keys(attributes).length === 0) return;
-    
-      const maxPoints = Math.max(...Object.values(attributes));
-      const highestAttributes = Object.keys(attributes).filter(
-        (key) => attributes[key] === maxPoints
-      );
-    
-      const matchingAttributes = attributeList.filter(attr =>
-        highestAttributes.includes(attr.id)
-      );
-    
-      if (matchingAttributes.length === 0) return;
-    
-      const chosenAttribute =
-        matchingAttributes.length === 1
-          ? matchingAttributes[0]
-          : matchingAttributes[Math.floor(Math.random() * matchingAttributes.length)];
-    
-      setHighestStat(chosenAttribute.name);
-    
-      // Use the function to get a random value from `values`
-      setHighestStatValue(getRandomAttributeValue(attributeList, chosenAttribute.name));
-    }, [attributes]);
-
   const handleComplete = () => {
     if (name.trim().length > 0) {
-      onAttributesCompleted({ name, highestStatValue });
+      onAttributesCompleted(new PlayerData(name, attributes));
     }
   };
 
