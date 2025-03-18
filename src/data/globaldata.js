@@ -62,7 +62,7 @@ const acts = [
     {
         title: "Draakoni rünnak esimene",
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
-        imagePath: "../../assets/img/acts/dragon.jpg",
+        imagePath: "../../assets/img/acts/dragon.png",
         choices: [
             {icon: "../assets/img/button/icon-accept.png", title: "Mõõk", value: "mõõk"},
             {icon: "../assets/img/button/icon-deny.png", title: "Mõõk", value: "mõõk"},
@@ -73,7 +73,7 @@ const acts = [
     {
         title: "Draakoni rünnak teine",
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
-        imagePath: "../../assets/img/acts/dragon.jpg",
+        imagePath: "../../assets/img/acts/dragon.png",
         choices: [
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
@@ -84,7 +84,7 @@ const acts = [
     {
         title: "Draakoni rünnak kolmas",
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
-        imagePath: "../../assets/img/acts/dragon.jpg",
+        imagePath: "../../assets/img/acts/dragon.png",
         choices: [
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
@@ -95,7 +95,7 @@ const acts = [
     {
         title: "Draakoni rünnak neljas",
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
-        imagePath: "../../assets/img/acts/dragon.jpg",
+        imagePath: "../../assets/img/acts/dragon.png",
         choices: [
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
@@ -106,7 +106,7 @@ const acts = [
     {
         title: "Draakoni rünnak viies",
         text: "Draakon ründab küla! Võta relv ja tõtta appi!",
-        imagePath: "../../assets/img/acts/dragon.jpg",
+        imagePath: "../../assets/img/acts/dragon.png",
         choices: [
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
             {icon: "../assets/img/button/icon-run.png", title: "Mõõk", value: "mõõk"},
@@ -117,7 +117,7 @@ const acts = [
     {
         title: "Draakoni rünnak, päriselt seekord!",
         text: "Draakon ründab küla! Võta relv ja tõtta appi! Seekord siis viimast korda. :)",
-        imagePath: "../../assets/img/acts/dragon.jpg",
+        imagePath: "../../assets/img/acts/dragon.png",
         final: true,
         choices: [] // tulevad suurima statsi relvadest
     }

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-neutral-950 text-white
+  @apply bg-neutral-950 text-white overflow-hidden
 }
 
 h1 {

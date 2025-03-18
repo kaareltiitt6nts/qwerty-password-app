@@ -10,6 +10,14 @@ export class PlayerData {
     this.keywords.push(keyword)
   }
 
+  generatePassword = () => {
+    const pw = this.keywords.reduce((acc, val) => acc = acc + val, "")
+
+    console.log(pw)
+
+    return pw
+  }
+
   getHighestAttributeId = () => {
     // ?????????????????
     const highestAttribute = Object.entries(this.attributes).sort(([, a], [, b]) => b - a)[0]

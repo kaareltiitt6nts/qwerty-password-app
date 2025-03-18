@@ -12,7 +12,7 @@ const GameContainer = () => {
   const [stage, setStage] = useState(0)
   const [acts, setActs] = useState([])
   const [finalAct, setFinalAct] = useState(null)
-  const [playerData, setPlayerData] = useState(null)
+  const [playerData, setPlayerData] = useState(null) // usecontext?
 
   useEffect(() => {
     if (gameState === "playing") {
@@ -104,7 +104,7 @@ const GameContainer = () => {
       )}
 
       {/* salasõna result */}
-      {gameState === "gameResult" && <ResultScreen onCompleted={resultCompletedHandler} passwordResult={"salasõna"}/>}
+      {gameState === "gameResult" && <ResultScreen onCompleted={resultCompletedHandler} playerData={playerData}/>}
 
       {/* tagasi main menusse */}
       {gameState === "gameOver" && <MainMenu onGameStarted={gameStartedHandler} />}
