@@ -7,7 +7,7 @@ const MainMenu = (props) => {
 
   return (
     <Card>
-      <div className="text-center">
+      <div className="w-96 text-center">
         <div className="flex flex-col text-xl">
           <h1>Unustamatu parooli genereerimise mäng</h1>
         </div>

@@ -104,7 +104,7 @@ const GameContainer = () => {
       )}
 
       {/* salasõna result */}
-      {gameState === "gameResult" && <ResultScreen onCompleted={resultCompletedHandler}/>}
+      {gameState === "gameResult" && <ResultScreen onCompleted={resultCompletedHandler} passwordResult={"salasõna"}/>}
 
       {/* tagasi main menusse */}
       {gameState === "gameOver" && <MainMenu onGameStarted={gameStartedHandler} />}
