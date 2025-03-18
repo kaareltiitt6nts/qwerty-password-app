@@ -4,9 +4,10 @@ import MainMenu from "./menus/MainMenu"
 import CharacterMenu from "./menus/CharacterMenu"
 import { GetFinalAct, GetRandomActs } from "../data/globaldata"
 import { AnimatePresence } from "framer-motion"
+import ResultScreen from "./menus/ResultScreen"
 
 const GameContainer = () => {
-  // mainMenu, characterCreation, playing, endResult, gameOver
+  // mainMenu, characterCreation, playing, gameResult, gameOver
   const [gameState, setGameState] = useState("mainMenu")
   const [stage, setStage] = useState(0)
   const [acts, setActs] = useState([])
@@ -44,6 +45,10 @@ const GameContainer = () => {
     }
   }
 
+  const resultCompletedHandler = () => {
+    resetGame()
+  }
+
   const gameCompletedHandler = (choice) => {
     console.log("Game Completed!")
     
@@ -52,7 +57,7 @@ const GameContainer = () => {
       weapon: choice,
     }))
 
-    setGameState("gameOver")
+    setGameState("gameResult")
   }
 
   const gameStartedHandler = () => {
@@ -97,6 +102,9 @@ const GameContainer = () => {
           onCompleted={gameCompletedHandler}
         />
       )}
+
+      {/* salasõna result */}
+      {gameState === "gameResult" && <ResultScreen onCompleted={resultCompletedHandler}/>}
 
       {/* tagasi main menusse */}
       {gameState === "gameOver" && <MainMenu onGameStarted={gameStartedHandler} />}
