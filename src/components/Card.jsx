@@ -5,10 +5,9 @@ export const Card = (props) => {
   return (
     <motion.div
       key={Math.random()}
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -50 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0, transition:{ duration: 0.2, ease: "easeOut" }}}
+      exit={{ opacity: 0, y: 100, transition:{ duration: 0.2, ease: "easeOut" }}}
     >
       <div id='card' className='p-4 rounded-md bg-neutral-900 shadow-md'>
         {props.children}
