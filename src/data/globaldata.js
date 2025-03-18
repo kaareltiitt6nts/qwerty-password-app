@@ -126,7 +126,7 @@ const acts = [
 export const GetAttributes = () => attributes
 export const GetAllActs = () => acts
 export const GetRandomActs = (count) => {
-    const randomized = acts.sort().filter(act => act.final !== true)
+    const randomized = acts.sort(act => Math.random() - 0.5).filter(act => act.final !== true)
     return randomized.slice(0, count)
 }
 export const GetFinalAct = (highestAttributeId) => {

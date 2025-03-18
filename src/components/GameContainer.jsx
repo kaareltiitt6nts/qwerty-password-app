@@ -1,94 +1,106 @@
-import React, {useEffect, useState} from 'react'
-import ChoicePrompt from './menus/ChoicePrompt'
-import MainMenu from './menus/MainMenu'
-import CharacterMenu from './menus/CharacterMenu'
-import { GetFinalAct, GetRandomActs } from '../data/globaldata'
-
+import React, { useState, useEffect } from "react"
+import ChoicePrompt from "./menus/ChoicePrompt"
+import MainMenu from "./menus/MainMenu"
+import CharacterMenu from "./menus/CharacterMenu"
+import { GetFinalAct, GetRandomActs } from "../data/globaldata"
+import { AnimatePresence } from "framer-motion"
 
 const GameContainer = () => {
-  const [inMainMenu, setInMainMenu] = useState(true)
-  const [gameStarted, setGameStarted] = useState(false)
-  const [gameCompleted, setGameCompleted] = useState(false)
+  // mainMenu, characterCreation, playing, endResult, gameOver
+  const [gameState, setGameState] = useState("mainMenu")
   const [stage, setStage] = useState(0)
+  const [acts, setActs] = useState([])
   const [finalAct, setFinalAct] = useState(null)
   const [playerData, setPlayerData] = useState(null)
-  const [highestAttribute, setHighestAttribute] = useState(null)
 
-  const acts = GetRandomActs(5)
+  useEffect(() => {
+    if (gameState === "playing") {
+      setActs(GetRandomActs(5))
+    }
+  }, [gameState])
 
   const resetGame = () => {
-    setInMainMenu(true)
-    setGameStarted(false)
-    setGameCompleted(false)
+    setGameState("mainMenu")
     setStage(0)
     setPlayerData(null)
-    setHighestAttribute(null)
+    setActs([])
+    setFinalAct(null)
   }
 
   const promptCompleteHandler = (choice) => {
     console.log("selected " + choice)
-    playerData.addKeyword(choice)
-    setStage(stage + 1)
-    console.log(finalAct)
+    
+    setPlayerData((prev) => {
+      const updatedPlayerData = { ...prev }
+      updatedPlayerData.addKeyword(choice)
+      return updatedPlayerData
+    })
+
+    if (stage < acts.length - 1) {
+      setStage(stage + 1)
+    } else {
+      setGameState("finalAct")
+      setFinalAct(GetFinalAct(playerData.getHighestAttributeId()))
+    }
   }
 
   const gameCompletedHandler = (choice) => {
-    console.log("tehtud!")
-
-    playerData.weapon = choice
-
-    // hetkel ei tee see midagi
-    setGameCompleted(true)
+    console.log("Game Completed!")
     
-    // reseti asi 2ra
-    resetGame()
+    setPlayerData((prev) => ({
+      ...prev,
+      weapon: choice,
+    }))
+
+    setGameState("gameOver")
   }
 
   const gameStartedHandler = () => {
-    setInMainMenu(false)
+    setGameState("characterCreation")
   }
 
   const characterCompletedHandler = (data) => {
     setPlayerData(data)
-    setGameStarted(true)
-    setFinalAct(GetFinalAct(data.getHighestAttributeId()))
+    setGameState("playing")
   }
 
   return (
-    <>
+    <AnimatePresence mode="wait">
       {/* main menu */}
-      {inMainMenu && <MainMenu onGameStarted={gameStartedHandler} />}
-      
-      {/* karakteri loomine*/}
-      {!inMainMenu && !gameStarted && <CharacterMenu onCharacterCompleted={characterCompletedHandler} />}
+      {gameState === "mainMenu" && <MainMenu onGameStarted={gameStartedHandler} />}
 
-      {/* peamine gameplay */}
-      {gameStarted && stage < acts.length - 1 &&
+      {/* karakteri loomine */}
+      {gameState === "characterCreation" && (
+        <CharacterMenu onCharacterCompleted={characterCompletedHandler} />
+      )}
+
+      {/* tavalised promptid */}
+      {gameState === "playing" && stage < acts.length && (
         <ChoicePrompt
-          title={acts[stage]["title"]} 
-          text={acts[stage]["text"]} 
-          imagePath={acts[stage]["imagePath"]} 
-          choices={acts[stage]["choices"]} 
-          onCompleted={(choice) => promptCompleteHandler(choice)}
+          key={stage} // Ensures animation works
+          title={acts[stage].title}
+          text={acts[stage].text}
+          imagePath={acts[stage].imagePath}
+          choices={acts[stage].choices}
+          onCompleted={promptCompleteHandler}
         />
-      }
+      )}
 
-      {/* viimane prompt */}
-      {gameStarted && stage == acts.length - 1 && !gameCompleted &&
+      {/* viimane act */}
+      {gameState === "finalAct" && finalAct && (
         <ChoicePrompt
-          title={finalAct["title"]} 
-          text={finalAct["text"]} 
-          imagePath={finalAct["imagePath"]} 
-          choices={finalAct["choices"]} 
-          onCompleted={(choice) => gameCompletedHandler(choice)}
+          key="final-act"
+          title={finalAct.title}
+          text={finalAct.text}
+          imagePath={finalAct.imagePath}
+          choices={finalAct.choices}
+          onCompleted={gameCompletedHandler}
         />
-      }
+      )}
 
-      {/* ??? */}
-      {gameCompleted &&
-        <MainMenu onGameStarted={gameStartedHandler}/>
-      }
-    </>
+      {/* tagasi main menusse */}
+      {gameState === "gameOver" && <MainMenu onGameStarted={gameStartedHandler} />}
+    </AnimatePresence>
   )
 }
 

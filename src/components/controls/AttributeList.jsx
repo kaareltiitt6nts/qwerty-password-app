@@ -45,9 +45,9 @@ const AttributeList = (props) => {
     <div>
       <div className='w-full flex flex-col'>
           <label htmlFor="nameinput">Nimi:</label>
-          <input type="text" id="nameinput" className='bg-slate-100 text-black rounded-md' value={name}  onChange={(e) => setName(e.target.value)} placeholder="Peeter Suur näiteks"/>
+          <input type="text" id="nameinput" className='bg-slate-100 text-black rounded-md p-1' value={name}  onChange={(e) => setName(e.target.value)} placeholder="nt. Peeter Suur"/>
       </div>
-      <span>Points: {points}</span>
+      <span>Punktid: {points}</span>
       <ul>
         {
           attributeList.map((attribute, count) => {
