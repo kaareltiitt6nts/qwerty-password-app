@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import ChoicePrompt from "./menus/ChoicePrompt"
 import MainMenu from "./menus/MainMenu"
 import CharacterMenu from "./menus/CharacterMenu"
-import { GetFinalAct, GetRandomActs } from "../data/globaldata"
+import { GetFinalAct, GetRandomActs , GetFirstAct } from "../data/globaldata"
 import { AnimatePresence } from "framer-motion"
 import ResultScreen from "./menus/ResultScreen"
 
@@ -16,7 +16,10 @@ const GameContainer = () => {
 
   useEffect(() => {
     if (gameState === "playing") {
-      setActs(GetRandomActs(5))
+      const firstAct = GetFirstAct(); 
+      const randomActs = GetRandomActs(5); 
+      setActs([...firstAct, ...randomActs]); 
+      // setActs(GetRandomActs(5))
     }
   }, [gameState])
 
@@ -31,11 +34,7 @@ const GameContainer = () => {
   const promptCompleteHandler = (choice) => {
     console.log("selected " + choice)
     
-    setPlayerData((prev) => {
-      const updatedPlayerData = { ...prev }
-      updatedPlayerData.addKeyword(choice)
-      return updatedPlayerData
-    })
+    playerData.addKeyword(choice)
 
     if (stage < acts.length - 1) {
       setStage(stage + 1)
