@@ -109,9 +109,9 @@ const introActs = [
         text: "Oled äsja oma erialakooli lõpetanud ning valmis elama elu täiel rinnal. Mida soovid alustuseks teha?",
         imagePath: "../../assets/img/acts/cloud.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-accept.png", title: "Pidutseda", value: null},
-            {icon: "../assets/img/button/icons/misc/icon-deny.png", title: "Avastada maailma", value: null},
-            {icon: "../assets/img/button/icons/misc/icon-question.png", title: "Jätkata õpingutega", value: null}
+            {icon: "../assets/img/button/icons/misc/icon-happy.png", title: "Pidutseda", value: null},
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Avastada maailma", value: null},
+            {icon: "../assets/img/button/icons/misc/icon-book.png", title: "Jätkata õpingutega", value: null}
         ]
     },
     {
@@ -119,9 +119,9 @@ const introActs = [
         text: "Enne kui jõuad alustada järgnevat elujärku juhtub midagi kohutavat. Draakon ründab küla! On toimunud kohutav laastamine! Otsustad võtte ette teekonna draakoni alistamiseks. Mis motiveerib sind enim?",
         imagePath: "../../assets/img/acts/dragon.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-accept.png", title: "Alistada maailmas kurjus", value: null},
-            {icon: "../assets/img/button/icons/misc/icon-deny.png", title: "Teha tagasi, see mis sulle tehtud", value: null},
-            {icon: "../assets/img/button/icons/misc/icon-question.png", title: "Verevalamine ajab su vere vemmeldama", value: null}
+            {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Alistada maailmas kurjus", value: null},
+            {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Teha tagasi, see mis sulle tehtud", value: null},
+            {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Verevalamine ajab su vere vemmeldama", value: null}
         ]
     },
 ]
@@ -138,7 +138,7 @@ const outroActs = [
     {
         title: "Draakon alistatud!",
         text: `Oled jõudnud tagasi kodukülla, kus külaelanikud sind suure hurraa ja pidustusega vastu võtavad. Suur aitäh sulle draakoni alistamises! Sinusuguseid inimesi võiks maailmas rohkem olla!`,
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/cloud.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-accept.png", title: "Pidusse!", value: null},
         ]
@@ -146,9 +146,9 @@ const outroActs = [
     {
         title: "Meelespea tulevikuks!",
         text: `Kurjus valitseb meid kõikjal ja interneti maailmas kaitseb sind pahalaste eest tugev parool.
-        Kombineeri suuri-väikseid tähti, numbreid ja sümboleid. Eesmärgiga teha parool vähemalt 12 tähemärki pikaks.
+        Kombineeri suuri-väikseid tähti, numbreid ja sümboleid eesmärgiga teha parool vähemalt 12 tähemärgi pikkuseks.
         Soovita seda ka teistele!`,
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/computer.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-accept.png", title: "Olen ettevaatlik!", value: null},
         ]
@@ -161,9 +161,9 @@ const acts = [
         text: "Jõudsid teekonnal sillani, mida tuleb ületada. Haavatud troll aeleb sillal. Mida soovid teha?",
         imagePath: "../../assets/img/acts/troll.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Aita trolli kuidas võiamlik", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jätka trolli tülitamata", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Tapa juba haavatud troll", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-happy.png", title: "Aita trolli kuidas võiamlik", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Jätka trolli tülitamata", value: "neutral"},
+            {icon: "../assets/img/button/icons/weapons/str/icon-sword.png", title: "Tapa juba haavatud troll", value: "bad"}
         ]
     },
     {
@@ -171,9 +171,9 @@ const acts = [
         text: "Teekonnal märkad rändureid, kes on sattunud bandiitide ohvriks. Kuidas käitud olukorras?",
         imagePath: "../../assets/img/acts/bandits.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Kaitse rändureid bandiitide eest", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jäta rändurid, pole su probleem", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Ründa bandiite ja siis rändureid", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-shield.png", title: "Kaitse rändureid bandiitide eest", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Jäta rändurid, pole su probleem", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Ründa bandiite ja siis rändureid", value: "bad"}
         ]
     },
     {
@@ -181,19 +181,19 @@ const acts = [
         text: "Puhkeajal tuleb su juurde pealtnäha näljane kass. Kuidas käitud kassiga?",
         imagePath: "../../assets/img/acts/cat.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Toidad kassi oma toidu ja joogiga", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Ignoreerid kassi", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Ajad kassi sõnade ja viibetega minema", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-accept.png", title: "Toidad kassi oma toidu ja joogiga", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-deny.png", title: "Ignoreerid kassi", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-angry.png", title: "Ajad kassi sõnade ja viibetega minema", value: "bad"}
         ]
     },
     {
         title: "Kerjus teel",
         text: "Kohtad teel kerjust, kes vaatab anuvalt su poole, püüdes haarata sinust. Mida sa teed?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/placeholder.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Annad kerjusele nii palju, kui sul võimalik", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jalutad mööda", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Võtad kerjuselt selle, mis tal olemas on", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-money.png", title: "Annad kerjusele nii palju, kui sul võimalik", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Jalutad mööda", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-hand.png", title: "Võtad kerjuselt selle, mis tal olemas on", value: "bad"}
         ]
     },
     {
@@ -202,58 +202,58 @@ const acts = [
         imagePath: "../../assets/img/acts/burninghouse.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Tõttad abistama", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jalutad mööda", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Lähed teistesse hoonetesse varastama", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Jalutad mööda", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-hand.png", title: "Lähed teistesse hoonetesse varastama", value: "bad"}
         ]
     },
     {
         title: "Õnnetu turniir",
         text: "Oma teel sattusid järgmisse külla, kus toimub vibulaskmise turniir. Oled vaatajate seas, kuid üks õnnetu vibunool liigub rahva sekka. Kuidas käitud?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/placeholder.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Üritad võimalikult palju inimesi noole teekonnalt päästa", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jooksed eemale ja hüppad varju", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Tõmbad esimese kättesaadava inimese endale kilbiks", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-flee.png", title: "Jooksed eemale ja hüppad varju", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-shield.png", title: "Tõmbad esimese kättesaadava inimese endale kilbiks", value: "bad"}
         ]
     },
     {
         title: "Ennustaja",
         text: "Teekonnal kohtad üht ennustajat, kes köidab su tähelepanu. Otsustad vaatama minna, mis ta teeb. Ta jagab sulle kolm kaarti. Millise valid?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/placeholder.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Päike", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Maakaart", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Saatan", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-sun.png", title: "Päike", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-map.png", title: "Maakaart", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-devil.png", title: "Saatan", value: "bad"}
         ]
     },
     {
         title: "Surnumatja",
         text: "Kohtad teel üht surnumatjat, kes palub sult abi ühe raskema kirstu hauda ajamiseks. Mis teed?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/placeholder.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Aitad", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Liigud edasi", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Lükkad surnumatja hauda", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-happy.png", title: "Aitad", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Liigud edasi", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-angry.png", title: "Lükkad surnumatja hauda", value: "bad"}
         ]
     },
     {
         title: "Magusameister",
         text: "Läbid küla, kus möödud mesitrist, kes müüb magusat. Kas toetad meistrtit?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/placeholder.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Ostad talt magusat", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Möödud meistrist ja liigud edasi", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Varastad talt", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-money.png", title: "Ostad talt magusat", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Möödud meistrist ja liigud edasi", value: "neutral"},
+            {icon: "../assets/img/button/icons/misc/icon-hand.png", title: "Varastad talt", value: "bad"}
         ]
     },
     {
         title: "Tüütu teenusepakkuja",
         text: "Tee peale on sattunud sulle teenusepakkuja, kes pakub sulle saabaste hooldamist. Ta krabab sinust kinni ja palub agressiivselt su saapaid hooldada, raha eest muidugi.",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/placeholder.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Võtad vastu pakkumise ja aitad meelsasti abivajat", value: "good"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jalutad kiirel sammul edasi ja vastad: 'Ma just hooldasin'", value: "neutral"},
-            {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Annad tüütusele vastu pead ja röövid teda", value: "bad"}
+            {icon: "../assets/img/button/icons/misc/icon-happy.png", title: "Võtad vastu pakkumise ja aitad meelsasti abivajat", value: "good"},
+            {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Jalutad kiirel sammul edasi ja vastad: 'Ma just hooldasin'", value: "neutral"},
+            {icon: "../assets/img/button/icons/weapons/str/icon-sword.png", title: "Annad tüütusele vastu pead ja röövid teda", value: "bad"}
         ]
     }
 

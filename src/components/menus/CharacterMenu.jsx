@@ -12,9 +12,7 @@ const CharacterMenu = (props) => {
 
   return (
     <Card>
-      <div className='flex flex-col gap-5'>
         <AttributeList onAttributesCompleted={handleAttributesCompleted} />
-      </div>
     </Card>
   )
 }

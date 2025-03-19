@@ -14,7 +14,7 @@ const ResultScreen = (props) => {
 
   return (
     <Card>
-      <div className="w-fit flex flex-col text-center">
+      <div className="w-96 flex flex-col text-center">
         <h1>Salasõna tulemus</h1>
         <div className="flex flex-col items-center gap-3">
           <div className="w-full">
