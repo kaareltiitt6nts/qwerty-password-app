@@ -4,10 +4,10 @@ import { ChoiceList } from '../ChoiceList'
 import ChoiceText from '../ChoiceText'
 
 const ChoicePrompt = (props) => {
-  const {title, text, imagePath, choices, onCompleted} = props
+  const {title, text, imagePath, choices, isFinal, onCompleted} = props
 
   const promptCompleteHandler = (choice) => {
-    onCompleted(choice)
+    onCompleted(choice, isFinal)
   }
 
   return (

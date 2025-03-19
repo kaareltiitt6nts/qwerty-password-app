@@ -42,7 +42,9 @@ const traits = [
       "petturlik",
     ],
   },
-];
+]
+
+export const GetTraits = () => traits
 
 const getRandomTraitValue = (id) => {
   const trait = traits.find((trait) => trait.id === id);
@@ -53,19 +55,31 @@ const getRandomTraitValue = (id) => {
   return null;
 };
 
-const str1 = "get1stWord";
+const str1 = highestStat;
 const str2 = "get2ndWord";
 const str3 = "get3rdWord";
 const str4 = "get4thWord";
 
-const finalPw = "insert logic here"
 // 1 = tugevus/nobedus/mage/tarkpea
 // 2 = eesnimi
 // 3 = good/bad/neutral == aus / julm / rahulik
 // 4 = relv == kivi / vibu / kaigas
 
 const explainPw = `
-    Andsid karakterile mille lõid kõige rohkem <b> ${highestStat} </b> punkte. Valisid karakteri nimeks <b>
-    ${str2}</b>. Seikluse käigus tehtud otsused iseloomustavad sind kui <b>${str3}</b>. Relv mille abil õnnestus lõpuks draakon alistada: <b>${str4}</b>.
-    Nüüd on sul visuaalne ettekujutus sinu unustamatust paroolist:<br /> ${finalPw}
+    Andsid karakterile mille lõid kõige rohkem <b> ${attributeWord} </b> punkte. Valisid karakteri nimeks <b>
+    ${firstNameWord}</b>. Seikluse käigus tehtud otsused iseloomustavad sind kui <b>${choicesWord}</b>. Relv mille abil õnnestus lõpuks draakon alistada: <b>${weaponWord}</b>.
+    Nüüd on sul visuaalne ettekujutus sinu unustamatust paroolist:<br /> ${pw}
 `;
+
+/*
+words.forEach(word => toTitle(word))??????
+
+function toTitle(str) {
+  if (!str) {
+      return ""
+  }
+  return str.toLowerCase().replace(/\b\w/g, s => s.toUpperCase());
+}
+*/
+
+const finalPw = `${transformString(str1)}${transformString(str2)}${transformString(str3)}${transformString(str4)}`;

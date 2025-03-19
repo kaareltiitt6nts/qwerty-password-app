@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, act } from "react"
 import ChoicePrompt from "./menus/ChoicePrompt"
 import MainMenu from "./menus/MainMenu"
 import CharacterMenu from "./menus/CharacterMenu"
-import { GetFinalAct, GetRandomActs , GetFirstAct } from "../data/globaldata"
+import { GetAllActs, getRandomAttributeValue } from "../data/globaldata"
 import { AnimatePresence } from "framer-motion"
 import ResultScreen from "./menus/ResultScreen"
 
@@ -11,15 +11,13 @@ const GameContainer = () => {
   const [gameState, setGameState] = useState("mainMenu")
   const [stage, setStage] = useState(0)
   const [acts, setActs] = useState([])
-  const [finalAct, setFinalAct] = useState(null)
   const [playerData, setPlayerData] = useState(null) // usecontext?
 
   useEffect(() => {
     if (gameState === "playing") {
-      const firstAct = GetFirstAct(); 
-      const randomActs = GetRandomActs(5); 
-      setActs([...firstAct, ...randomActs]); 
-      // setActs(GetRandomActs(5))
+      const newActs = GetAllActs(5, playerData.getHighestAttributeId())
+      console.log(newActs)
+      setActs(newActs)
     }
   }, [gameState])
 
@@ -28,19 +26,22 @@ const GameContainer = () => {
     setStage(0)
     setPlayerData(null)
     setActs([])
-    setFinalAct(null)
   }
 
-  const promptCompleteHandler = (choice) => {
+  const promptCompleteHandler = (choice, isFinal) => {
     console.log("selected " + choice)
     
-    playerData.addKeyword(choice)
+    if (isFinal) {
+      playerData.setWeapon(choice)
+    }
+    else {
+      playerData.addKeyword(choice)
+    }
 
-    if (stage < acts.length - 1) {
-      setStage(stage + 1)
-    } else {
-      setGameState("finalAct")
-      setFinalAct(GetFinalAct(playerData.getHighestAttributeId()))
+    setStage(stage + 1)
+
+    if (stage === acts.length - 1) {
+      setGameState("gameResult")
     }
   }
 
@@ -78,7 +79,7 @@ const GameContainer = () => {
         <CharacterMenu onCharacterCompleted={characterCompletedHandler} />
       )}
 
-      {/* tavalised promptid */}
+      {/* gameloop */}
       {gameState === "playing" && stage < acts.length && (
         <ChoicePrompt
           key={stage} // Ensures animation works
@@ -86,27 +87,13 @@ const GameContainer = () => {
           text={acts[stage].text}
           imagePath={acts[stage].imagePath}
           choices={acts[stage].choices}
+          isFinal={acts[stage].isFinal}
           onCompleted={promptCompleteHandler}
-        />
-      )}
-
-      {/* viimane act */}
-      {gameState === "finalAct" && finalAct && (
-        <ChoicePrompt
-          key="final-act"
-          title={finalAct.title}
-          text={finalAct.text}
-          imagePath={finalAct.imagePath}
-          choices={finalAct.choices}
-          onCompleted={gameCompletedHandler}
         />
       )}
 
       {/* salasõna result */}
       {gameState === "gameResult" && <ResultScreen onCompleted={resultCompletedHandler} playerData={playerData}/>}
-
-      {/* tagasi main menusse */}
-      {gameState === "gameOver" && <MainMenu onGameStarted={gameStartedHandler} />}
     </AnimatePresence>
   )
 }
