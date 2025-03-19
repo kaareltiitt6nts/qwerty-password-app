@@ -84,7 +84,7 @@ const traits = [
         "positiivne",
         "õrn",
         "usaldusväärne",
-        " moraalne",
+        "moraalne",
         "arvestav",
         ],
     },

@@ -2,7 +2,7 @@ import React, { useState, useEffect, act } from "react"
 import ChoicePrompt from "./menus/ChoicePrompt"
 import MainMenu from "./menus/MainMenu"
 import CharacterMenu from "./menus/CharacterMenu"
-import { GetAllActs, getRandomAttributeValue, getRandomTraitValue } from "../data/globaldata"
+import { GetAllActs } from "../data/globaldata"
 import { AnimatePresence } from "framer-motion"
 import ResultScreen from "./menus/ResultScreen"
 
@@ -16,7 +16,6 @@ const GameContainer = () => {
   useEffect(() => {
     if (gameState === "playing") {
       const newActs = GetAllActs(5, playerData.getHighestAttributeId())
-      console.log(newActs)
       setActs(newActs)
     }
   }, [gameState])
@@ -35,7 +34,7 @@ const GameContainer = () => {
       playerData.setWeapon(choice)
     }
     else {
-      playerData.addKeyword(choice)
+      playerData.addChoice(choice)
     }
 
     setStage(stage + 1)
@@ -47,17 +46,6 @@ const GameContainer = () => {
 
   const resultCompletedHandler = () => {
     resetGame()
-  }
-
-  const gameCompletedHandler = (choice) => {
-    console.log("Game Completed!")
-    
-    setPlayerData((prev) => ({
-      ...prev,
-      weapon: choice,
-    }))
-
-    setGameState("gameResult")
   }
 
   const gameStartedHandler = () => {

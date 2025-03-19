@@ -2,16 +2,26 @@ import { getRandomAttributeValue , GetTraits } from "../data/globaldata"
 
 
 export class PlayerData {
-  constructor(name, attributes) {
+  constructor(name) {
     this.name = name
     this.weapon = null
-    this.attributes = attributes
-    this.keywords = []
+    this.attributes = {}
+    this.choices = {}
   }
 
-  addKeyword = (keyword) => {
-    if (!keyword) return
-    this.keywords.push(keyword)
+  addChoice = (choiceType) => {
+    if (!choiceType) return
+
+    const choice = this.choices[choiceType]
+
+    if (choice != undefined) {
+      this.choices[choiceType] += 1
+    }
+    else {
+      this.choices[choiceType] = 1
+    }
+
+    console.log(this.choices)
   }
 
   setWeapon = (weapon) => {
@@ -19,46 +29,38 @@ export class PlayerData {
     this.weapon = weapon
   }
 
+  setAttributes = (attributes) => {
+    this.attributes = attributes
+    console.log(this.attributes)
+  }
+
   generatePassword = () => {
-    // loendad keywordid kokku
-    // weapon
-    // highest attribute id -> sokerdis/globaldata
-    // name -> this.name.split(" ")[0]
-    // finalresult pw regex
     const words = []
-    const choicesMade = {}
+
+    // karakterist tulenevad sõnad
     const attributeWord = getRandomAttributeValue(this.getHighestAttributeId())
     const firstNameWord = this.name.split(" ")[0]
     const weaponWord = this.weapon
 
-    words.push(attributeWord, firstNameWord, "", weaponWord)
+    // mänguvalikutest tulenevad sõnad
+    const highestChoice = Object.keys(this.choices).reduce((a, b) => choices[a] > choices[b] ? a : b)
+    const choiceWords = GetTraits().find(trait => trait.id === highestChoice).values
+    const choiceWord = choiceWords[Math.floor(Math.random() * choiceWords.length)]
 
-    console.log(words)
-    const formattedWords = []
-    words.forEach(word => {
-      const formattedWord = word.toLowerCase()
+    words.push(attributeWord, firstNameWord, choiceWord, weaponWord)
+
+    const formattedWords = words.map(word => {
+      return word.toLowerCase()
       .replace(/ö/g, "8")
       .replace(/õ/g, "6")
       .replace(/ä/g, "2")
       .replace(/ü/g, "y")
-      .replace(/\b\w/g, (char) => char.toUpperCase())
-      formattedWords.push(formattedWord)
+      .replace(/^\w/, (char) => char.toUpperCase())
     })
 
-    this.keywords.forEach(choice => {
-      if (choicesMade[choice]) {
-        choicesMade[choice] += 1
-      }
-      else {
-        choicesMade[choice] = 1
-      }
-    })
-    const highestTrait = Object.entries(this.keywords).sort(([, a], [, b]) => b - a)[0][1]
-    const traitWords = GetTraits().find(trait => trait.id === highestTrait).values
-    words[2] = traitWords[Math.random() * traitWords.length - 1]
+    console.log(formattedWords)
 
-    const pw = formattedWords.join("")
-    return pw
+    return formattedWords.join("")
   }
 
   getHighestAttributeId = () => {

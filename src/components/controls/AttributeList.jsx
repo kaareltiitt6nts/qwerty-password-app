@@ -37,7 +37,10 @@ const AttributeList = (props) => {
 
   const handleComplete = () => {
     if (name.trim().length > 0) {
-      onAttributesCompleted(new PlayerData(name, attributes));
+      const playerData = new PlayerData(name)
+      playerData.setAttributes(attributes)
+
+      onAttributesCompleted(playerData);
     }
   };
 
