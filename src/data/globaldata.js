@@ -46,7 +46,7 @@ const attributes = [
         name: "Tarkus",
         min: 1,
         max: 5,
-        values: ["arukas", "andekas", "hiilgav", "taibukas", "tark", "geniaalne"],
+        values: ["arukas", "andekas", "hiilgav", "taibukas", "tark", "geniaalne", "tarkpea"],
         weapons: [
             {icon: "../assets/img/button/icons/weapons/int/icon-acidbottle.png", title: "Happepudel", value:"happepudel"},
             {icon: "../assets/img/button/icons/misc/icon-book.png", title: "Luuleraamat", value:"luuleraamat"},
