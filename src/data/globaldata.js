@@ -120,7 +120,7 @@ const introActs = [
         imagePath: "../../assets/img/acts/village.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Alistada maailmas kurjus", value: null},
-            {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Teha tagasi, see mis sulle tehtud", value: null},
+            {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Teha tagasi see, mis sulle tehtud", value: null},
             {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Verevalamine ajab su vere vemmeldama", value: null}
         ]
     },
@@ -128,7 +128,7 @@ const introActs = [
 
 const finalAct = {
     title: "Draakoni alistamine!",
-    text: "Jõudsid draakonini. Võta relv ja alista draakon! :)",
+    text: "Oled jõudnud draakoni lahinguväljale, haara relv - on aeg ta hävitada!",
     imagePath: "../../assets/img/acts/dragon.png",
     isFinal: true,
     choices: [] // tulevad suurima statsi relvadest
@@ -238,7 +238,7 @@ const acts = [
     },
     {
         title: "Magusameister",
-        text: "Läbid küla, kus möödud mesitrist, kes müüb magusat. Kas toetad meistrtit?",
+        text: "Läbid küla, kus möödud mesitrist, kes müüb magusat. Kas toetad meistrit?",
         imagePath: "../../assets/img/acts/placeholder.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-money.png", title: "Ostad talt magusat", value: "good"},
@@ -297,10 +297,3 @@ export const getRandomAttributeValue = (highestStatId) => {
   
     return foundAttribute.values[Math.floor(Math.random() * foundAttribute.values.length)]
 }
-const getRandomTraitValue = (id) => {
-    const trait = traits.find((trait) => trait.id === id);
-    if (trait) {
-        const randomIndex = Math.floor(Math.random() * trait.values.length);
-        return trait.values[randomIndex];
-    }
-return null}
