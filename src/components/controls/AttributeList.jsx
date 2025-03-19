@@ -13,10 +13,10 @@ const AttributeList = (props) => {
 
   useEffect(() => {
     setAttributes(prevAttributes => ({
-      str: prevAttributes.str ?? 1,
-      dex: prevAttributes.dex ?? 1,
-      mag: prevAttributes.mag ?? 1,
-      int: prevAttributes.int ?? 1
+      str: prevAttributes.str ?? 0,
+      dex: prevAttributes.dex ?? 0,
+      mag: prevAttributes.mag ?? 0,
+      int: prevAttributes.int ?? 0
     }))
   }, [points])
 
@@ -25,7 +25,7 @@ const AttributeList = (props) => {
     const newPoints = points - amount
     const newAttributePoints = attributes[attributeId] + amount
     if (newPoints < 0 || newPoints > 10) return
-    if (newAttributePoints < 1 || newAttributePoints > 5) return
+    if (newAttributePoints < 0 || newAttributePoints > 5) return
 
     setAttributes(prev => ({
       ...prev,

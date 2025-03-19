@@ -140,10 +140,8 @@ const acts = [
 
 export const GetAttributes = () => attributes
 export const GetAllActs = () => acts
-
 export const GetFirstAct = () => {
     const firstAct = acts.filter(act => act.title === "Draakoni rünnak")
-
     return firstAct
 }
 
