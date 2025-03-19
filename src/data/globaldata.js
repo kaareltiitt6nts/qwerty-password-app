@@ -117,7 +117,7 @@ const introActs = [
     {
         title: "Draakoni rünnak",
         text: "Enne kui jõuad alustada järgnevat elujärku juhtub midagi kohutavat. Draakon ründab küla! On toimunud kohutav laastamine! Otsustad võtte ette teekonna draakoni alistamiseks. Mis motiveerib sind enim?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/village.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Alistada maailmas kurjus", value: null},
             {icon: "../assets/img/button/icons/misc/icon-fight.png", title: "Teha tagasi, see mis sulle tehtud", value: null},
