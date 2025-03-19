@@ -2,7 +2,7 @@ import React, { useState, useEffect, act } from "react"
 import ChoicePrompt from "./menus/ChoicePrompt"
 import MainMenu from "./menus/MainMenu"
 import CharacterMenu from "./menus/CharacterMenu"
-import { GetAllActs, getRandomAttributeValue } from "../data/globaldata"
+import { GetAllActs, getRandomAttributeValue, getRandomTraitValue } from "../data/globaldata"
 import { AnimatePresence } from "framer-motion"
 import ResultScreen from "./menus/ResultScreen"
 
