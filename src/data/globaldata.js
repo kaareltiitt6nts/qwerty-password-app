@@ -72,7 +72,7 @@ const acts = [
     {
         title: "Haavatud troll silla peal",
         text: "Jõudsid teekonnal sillani, mida tuleb ületada. Haavatud troll aeleb sillal. Mida soovid teha?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/troll.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Aita trolli kuidas võiamlik", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jätka trolli tülitamata", value: "neutral"},
@@ -82,7 +82,7 @@ const acts = [
     {
         title: "Bandiidid ründavad rändureid",
         text: "Teekonnal märkad rändureid, kes on sattunud bandiitide ohvriks. Kuidas käitud olukorras?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/bandits.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Kaitse rändureid bandiitide eest", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Jäta rändurid, pole su probleem", value: "neutral"},
@@ -92,7 +92,7 @@ const acts = [
     {
         title: "Nälgiv kass",
         text: "Puhkeajal tuleb su juurde pealtnäha näljane kass. Kuidas käitud kassiga?",
-        imagePath: "../../assets/img/acts/dragon.png",
+        imagePath: "../../assets/img/acts/cat.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Toidad kassi oma toidu ja joogiga", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Ignoreerid kassi", value: "neutral"},
