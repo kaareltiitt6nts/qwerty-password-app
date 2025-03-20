@@ -43,7 +43,7 @@ export class PlayerData {
     const weaponWord = this.weapon
 
     // mänguvalikutest tulenevad sõnad
-    const highestChoice = Object.keys(this.choices).reduce((a, b) => choices[a] > choices[b] ? a : b)
+    const highestChoice = Object.keys(this.choices).reduce((a, b) => this.choices[a] > this.choices[b] ? a : b)
     const choiceWords = GetTraits().find(trait => trait.id === highestChoice).values
     const choiceWord = choiceWords[Math.floor(Math.random() * choiceWords.length)]
 
