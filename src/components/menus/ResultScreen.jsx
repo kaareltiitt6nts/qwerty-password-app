@@ -1,15 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card } from '../Card'
 import { Button } from '../controls/Button'
 
 const ResultScreen = (props) => {
   const {onCompleted, playerData} = props
+  const [result, setResult] = useState(playerData.generatePassword())
 
   const copyPassword = () => {
-    var copyText = document.getElementById("passwordResult")
-    copyText.select()
-    copyText.setSelectionRange(0, 99999)
-    navigator.clipboard.writeText(copyText.value)
+    navigator.clipboard.writeText(result)
   }
 
   return (
@@ -18,8 +16,9 @@ const ResultScreen = (props) => {
         <h1>Salasõna tulemus</h1>
         <div className="flex flex-col items-center gap-3">
           <div className="w-full">
-            <p className="text-2xl mb-3 break-words" id="passwordResult">{playerData.generatePassword()}</p>
-            <p className="text-neutral-600">Salasõna saate kasutada ükskõik millal, ükskõik kus ning seda teist ja kolmandat.</p>
+            <p className="text-2xl mb-3 break-words" id="passwordResult">{result}</p>
+            <Button text="Kopeeri" onClick={copyPassword}/>
+            <p className="text-neutral-600 mt-2">Salasõna saate kasutada ükskõik millal, ükskõik kus ning seda teist ja kolmandat.</p>
           </div>
           <Button text={"Lõpeta mäng"} onClick={onCompleted}/>
         </div>

@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import bgImage from "../../assets/img/button/bg.png"
-import { div } from 'framer-motion/client'
 import { AnimatePresence, motion } from 'framer-motion'
 
 export const IconButton = (props) => {

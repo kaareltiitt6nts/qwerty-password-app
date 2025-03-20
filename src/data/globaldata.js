@@ -109,7 +109,7 @@ const introActs = [
         text: "Oled äsja oma erialakooli lõpetanud ning valmis elama elu täiel rinnal. Mida soovid alustuseks teha?",
         imagePath: "../../assets/img/acts/cloud.png",
         choices: [
-            {icon: "../assets/img/button/icons/misc/icon-happy.png", title: "Pidutseda", value: null},
+            {icon: "../assets/img/button/icons/misc/icon-song.png", title: "Pidutseda", value: null},
             {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Avastada maailma", value: null},
             {icon: "../assets/img/button/icons/misc/icon-book.png", title: "Jätkata õpingutega", value: null}
         ]
@@ -209,7 +209,7 @@ const acts = [
     {
         title: "Õnnetu turniir",
         text: "Oma teel sattusid järgmisse külla, kus toimub vibulaskmise turniir. Oled vaatajate seas, kuid üks õnnetu vibunool liigub rahva sekka. Kuidas käitud?",
-        imagePath: "../../assets/img/acts/placeholder.png",
+        imagePath: "../../assets/img/acts/tournament.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-run.png", title: "Üritad võimalikult palju inimesi noole teekonnalt päästa", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-flee.png", title: "Jooksed eemale ja hüppad varju", value: "neutral"},
@@ -219,7 +219,7 @@ const acts = [
     {
         title: "Ennustaja",
         text: "Teekonnal kohtad üht ennustajat, kes köidab su tähelepanu. Otsustad vaatama minna, mis ta teeb. Ta jagab sulle kolm kaarti. Millise valid?",
-        imagePath: "../../assets/img/acts/placeholder.png",
+        imagePath: "../../assets/img/acts/fortuneteller.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-sun.png", title: "Päike", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-map.png", title: "Maakaart", value: "neutral"},

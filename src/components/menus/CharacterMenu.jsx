@@ -3,12 +3,11 @@ import { Card } from '../Card'
 import AttributeList from '../controls/AttributeList'
 
 const CharacterMenu = (props) => {
-  const {onCharacterCompleted} = props
+  const {onCharacterCompleted} = props  
 
   const handleAttributesCompleted = (playerData) => {
-    console.log(playerData)
     onCharacterCompleted(playerData);
-  };
+  }
 
   return (
     <Card>
@@ -16,4 +15,5 @@ const CharacterMenu = (props) => {
     </Card>
   )
 }
+
 export default CharacterMenu
