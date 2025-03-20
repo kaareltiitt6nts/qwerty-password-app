@@ -1,4 +1,4 @@
-import { getRandomAttributeValue , GetTraits } from "../data/globaldata"
+import { GetAttributes, getRandomAttributeValue , GetTraits } from "../data/globaldata"
 
 
 export class PlayerData {
@@ -7,6 +7,7 @@ export class PlayerData {
     this.weapon = null
     this.attributes = {}
     this.choices = {}
+    this.words = {}
   }
 
   addChoice = (choiceType) => {
@@ -34,6 +35,8 @@ export class PlayerData {
     console.log(this.attributes)
   }
 
+  getWords = () => this.words
+
   generatePassword = () => {
     const words = []
 
@@ -59,12 +62,18 @@ export class PlayerData {
     })
 
     console.log(formattedWords)
-
+    this.words = {
+      attributeWord: GetAttributes().find(attribute => attribute.id === this.getHighestAttributeId()).name.toLowerCase(), 
+      firstNameWord: firstNameWord, 
+      weaponWord: weaponWord, 
+      choicesWord: GetTraits().find(trait => trait.id === highestChoice).name.toLowerCase()
+    }
+    console.log(this.words)
     return formattedWords.join("")
   }
 
   getHighestAttributeId = () => {
-    // ?????????????????
+    // ????????????????? isegi ma ei oska öelda mis see tegema peaks -kaarel
     const highestAttribute = Object.entries(this.attributes).sort(([, a], [, b]) => b - a)[0]
 
     return highestAttribute[0]

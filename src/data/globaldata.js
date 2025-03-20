@@ -189,7 +189,7 @@ const acts = [
     {
         title: "Kerjus teel",
         text: "Kohtad teel kerjust, kes vaatab anuvalt su poole, püüdes haarata sinust. Mida sa teed?",
-        imagePath: "../../assets/img/acts/placeholder.png",
+        imagePath: "../../assets/img/acts/beggar.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-money.png", title: "Annad kerjusele nii palju, kui sul võimalik", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Jalutad mööda", value: "neutral"},
@@ -229,7 +229,7 @@ const acts = [
     {
         title: "Surnumatja",
         text: "Kohtad teel üht surnumatjat, kes palub sult abi ühe raskema kirstu hauda ajamiseks. Mis teed?",
-        imagePath: "../../assets/img/acts/placeholder.png",
+        imagePath: "../../assets/img/acts/buryguy.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-happy.png", title: "Aitad", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Liigud edasi", value: "neutral"},
@@ -239,7 +239,7 @@ const acts = [
     {
         title: "Magusameister",
         text: "Läbid küla, kus möödud mesitrist, kes müüb magusat. Kas toetad meistrit?",
-        imagePath: "../../assets/img/acts/placeholder.png",
+        imagePath: "../../assets/img/acts/candyseller.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-money.png", title: "Ostad talt magusat", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Möödud meistrist ja liigud edasi", value: "neutral"},
@@ -249,7 +249,7 @@ const acts = [
     {
         title: "Tüütu teenusepakkuja",
         text: "Tee peale on sattunud sulle teenusepakkuja, kes pakub sulle saabaste hooldamist. Ta krabab sinust kinni ja palub agressiivselt su saapaid hooldada, raha eest muidugi.",
-        imagePath: "../../assets/img/acts/placeholder.png",
+        imagePath: "../../assets/img/acts/salesman.png",
         choices: [
             {icon: "../assets/img/button/icons/misc/icon-happy.png", title: "Võtad vastu pakkumise ja aitad meelsasti abivajat", value: "good"},
             {icon: "../assets/img/button/icons/misc/icon-walk.png", title: "Jalutad kiirel sammul edasi ja vastad: 'Ma just hooldasin'", value: "neutral"},
