@@ -9,9 +9,9 @@ export const ChoiceList = (props) => {
   }
 
   return (
-    <div className='w-full flex flex-row justify-between'>
+    <div className='w-full flex flex-row justify-around'>
       {choices.map((choice, index) => {
-        return <IconButton icon={"../assets/img/sword.png"} key={index} value={choice.value} onClick={() => selectHandler(choice.value)}/>
+        return <IconButton icon={choice.icon} title={choice.title} key={index} value={choice.value} onClick={() => selectHandler(choice.value)}/>
       })}
     </div>
   )

@@ -1,43 +1,88 @@
-import React, {useEffect, useState} from 'react'
-import ChoicePrompt from './menus/ChoicePrompt'
-import MainMenu from './menus/MainMenu'
-import CharacterMenu from './menus/CharacterMenu'
-import { GetRandomActs } from '../data/globalData'
+import React, { useState, useEffect, act } from "react"
+import ChoicePrompt from "./menus/ChoicePrompt"
+import MainMenu from "./menus/MainMenu"
+import CharacterMenu from "./menus/CharacterMenu"
+import { GetAllActs } from "../data/globaldata"
+import { AnimatePresence } from "framer-motion"
+import ResultScreen from "./menus/ResultScreen"
 
 const GameContainer = () => {
-  const [inMainMenu, setInMainMenu] = useState(true)
-  const [gameStarted, setGameStarted] = useState(false)
+  // mainMenu, characterCreation, playing, gameResult, gameOver
+  const [gameState, setGameState] = useState("mainMenu")
   const [stage, setStage] = useState(0)
-  const [acts, setActs] = useState(GetRandomActs(5))
-  const [charData, setCharData] = useState([])
+  const [acts, setActs] = useState([])
+  const [playerData, setPlayerData] = useState(null) // usecontext?
 
-  const promptCompleteHandler = (choice) => {
+  useEffect(() => {
+    if (gameState === "playing") {
+      const newActs = GetAllActs(5, playerData.getHighestAttributeId())
+      setActs(newActs)
+    }
+  }, [gameState])
+
+  const resetGame = () => {
+    setGameState("mainMenu")
+    setStage(0)
+    setPlayerData(null)
+    setActs([])
+  }
+
+  const promptCompleteHandler = (choice, isFinal) => {
     console.log("selected " + choice)
+    
+    if (isFinal) {
+      playerData.setWeapon(choice)
+    }
+    else {
+      playerData.addChoice(choice)
+    }
+
     setStage(stage + 1)
+
+    if (stage === acts.length - 1) {
+      setGameState("gameResult")
+    }
+  }
+
+  const resultCompletedHandler = () => {
+    resetGame()
   }
 
   const gameStartedHandler = () => {
-    setInMainMenu(false)
+    setGameState("characterCreation")
   }
 
-  const characterCompletedHandler = () => {
-    setGameStarted(true)
+  const characterCompletedHandler = (data) => {
+    setPlayerData(data)
+    setGameState("playing")
   }
-
-  const choices = [
-    {icon: "../assets/img/sword.png", value:"sword"},
-    {icon: "../assets/img/sword.png", value:"axe"},
-    {icon: "../assets/img/sword.png", value:"mallet"},
-    {icon: "../assets/img/sword.png", value:"pickaxe"},
-    {icon: "../assets/img/sword.png", value:"fists"},
-  ]
 
   return (
-    <>
-      {inMainMenu && <MainMenu onGameStarted={gameStartedHandler} />}
-      {(!inMainMenu && !gameStarted) && <CharacterMenu onCharacterCompleted={characterCompletedHandler} />}
-      {gameStarted && <ChoicePrompt title={acts[stage]["title"]} text={acts[stage]["text"]} imagePath={acts[stage]["imagePath"]} choices={acts[stage]["choices"]} onCompleted={(choice) => promptCompleteHandler(choice)}/>}
-    </>
+    <AnimatePresence mode="wait">
+      {/* main menu */}
+      {gameState === "mainMenu" && <MainMenu onGameStarted={gameStartedHandler} />}
+
+      {/* karakteri loomine */}
+      {gameState === "characterCreation" && (
+        <CharacterMenu onCharacterCompleted={characterCompletedHandler} />
+      )}
+
+      {/* gameloop */}
+      {gameState === "playing" && stage < acts.length && (
+        <ChoicePrompt
+          key={stage} // Ensures animation works
+          title={acts[stage].title}
+          text={acts[stage].text}
+          imagePath={acts[stage].imagePath}
+          choices={acts[stage].choices}
+          isFinal={acts[stage].isFinal}
+          onCompleted={promptCompleteHandler}
+        />
+      )}
+
+      {/* salasõna result */}
+      {gameState === "gameResult" && <ResultScreen onCompleted={resultCompletedHandler} playerData={playerData}/>}
+    </AnimatePresence>
   )
 }
 

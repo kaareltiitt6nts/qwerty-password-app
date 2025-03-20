@@ -5,7 +5,7 @@ const ChoiceText = (props) => {
   
   return (
     <div className='w-full flex flex-col'>
-      <img src={imagePath} alt="" className='w-full h-48 object-cover mb-5'/>
+      <img src={imagePath} alt="" className='w-full h-36 sm:h-48 object-cover mb-5 rounded-sm'/>
       <div>
         <h1 className='text-center'>{title}</h1>
         <p>{text}</p>
