@@ -272,7 +272,6 @@ export const GetRandomActs = (count) => {
 }
 export const GetFinalAct = (highestAttributeId) => {
     if (!highestAttributeId) {
-        console.log("highest attribute not given")
         return
     }
 

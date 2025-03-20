@@ -5,7 +5,6 @@ export const GameCard = (props) => {
   const {title, text, decorationImage, choices} = props
 
   const onSelectHandler = (event) => {
-    console.log(event.target)
   }
 
   return (

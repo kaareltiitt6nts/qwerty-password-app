@@ -21,18 +21,14 @@ export class PlayerData {
     else {
       this.choices[choiceType] = 1
     }
-
-    console.log(this.choices)
   }
 
   setWeapon = (weapon) => {
-    console.log(`Setting weapon to ${weapon}`)
     this.weapon = weapon
   }
 
   setAttributes = (attributes) => {
     this.attributes = attributes
-    console.log(this.attributes)
   }
 
   getWords = () => this.words
@@ -61,14 +57,13 @@ export class PlayerData {
       .replace(/^\w/, (char) => char.toUpperCase())
     })
 
-    console.log(formattedWords)
+    
     this.words = {
       attributeWord: GetAttributes().find(attribute => attribute.id === this.getHighestAttributeId()).name.toLowerCase(), 
       firstNameWord: firstNameWord, 
       weaponWord: weaponWord, 
       choicesWord: GetTraits().find(trait => trait.id === highestChoice).name.toLowerCase()
     }
-    console.log(this.words)
     return formattedWords.join("")
   }
 

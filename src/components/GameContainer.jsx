@@ -28,7 +28,6 @@ const GameContainer = () => {
   }
 
   const promptCompleteHandler = (choice, isFinal) => {
-    console.log("selected " + choice)
     
     if (isFinal) {
       playerData.setWeapon(choice)
